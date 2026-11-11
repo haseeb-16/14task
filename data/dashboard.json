@@ -1,0 +1,86 @@
+
+{
+    "profile": {
+        "name": "Haseeb Ur Rehman",
+        "email": "haseeb@example.com",
+        "program": "Computer Science Internship",
+        "startDate": "2026-11-01",
+        "role": "Computer Science Intern"
+    },
+    "application": {
+        "position": "AI / Software Engineering Intern",
+        "status": "Under Review",
+        "appliedOn": "2026-10-25",
+        "message": "Your application is currently being reviewed."
+    },
+    "assignments": [
+        {
+            "id": 1,
+            "title": "HTML Fundamentals",
+            "description": "Build a personal profile page using semantic HTML elements.",
+            "status": "Completed",
+            "dueDate": "2026-11-05",
+            "progress": 100
+        },
+        {
+            "id": 2,
+            "title": "CSS Responsive Design",
+            "description": "Create a responsive website using Flexbox and CSS Grid.",
+            "status": "Completed",
+            "dueDate": "2026-11-08",
+            "progress": 100
+        },
+        {
+            "id": 3,
+            "title": "JavaScript Fundamentals",
+            "description": "Practice variables, functions, arrays, objects and DOM manipulation.",
+            "status": "In Progress",
+            "dueDate": "2026-11-15",
+            "progress": 65
+        },
+        {
+            "id": 4,
+            "title": "Modern JavaScript",
+            "description": "Learn asynchronous JavaScript, modules, Fetch API and Promises.",
+            "status": "In Progress",
+            "dueDate": "2026-11-18",
+            "progress": 40
+        },
+        {
+            "id": 5,
+            "title": "Dashboard Development",
+            "description": "Develop an interactive intern training dashboard.",
+            "status": "Pending",
+            "dueDate": "2026-11-22",
+            "progress": 0
+        },
+        {
+            "id": 6,
+            "title": "Final Project",
+            "description": "Build and present a complete frontend project.",
+            "status": "Pending",
+            "dueDate": "2026-11-28",
+            "progress": 0
+        }
+    ],
+    "notifications": [
+        {
+            "id": 1,
+            "title": "Welcome to InternHub",
+            "message": "Your training dashboard is ready.",
+            "date": "2026-11-01"
+        },
+        {
+            "id": 2,
+            "title": "Assignment Completed",
+            "message": "Your CSS Responsive Design assignment is completed.",
+            "date": "2026-11-08"
+        },
+        {
+            "id": 3,
+            "title": "New Assignment",
+            "message": "JavaScript Fundamentals is available in your assignments.",
+            "date": "2026-11-10"
+        }
+    ]
+}

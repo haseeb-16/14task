@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Intern training and application dashboard.">
+    <title>Intern Dashboard</title>
+    <link rel="stylesheet" href="style.css">
+    <script type="module" src="js/app.js"></script>
+</head>
+
+<body>
+
+    <header class="topbar">
+        <div class="container topbar-content">
+            <a href="#" class="logo" id="home-link">InternHub</a>
+
+            <div class="topbar-actions">
+                <span id="clock" aria-live="off">--:--:--</span>
+                <button id="theme-button" type="button">Dark Mode</button>
+            </div>
+        </div>
+    </header>
+
+    <main class="container dashboard">
+
+        <section class="welcome-section reveal" id="profile">
+            <div>
+                <p class="eyebrow">INTERN TRAINING PORTAL</p>
+                <h1>Welcome, <span id="profile-name">Intern</span>!</h1>
+                <p id="profile-role">Your training dashboard</p>
+            </div>
+
+            <div class="profile-actions">
+                <button type="button" id="copy-email-button">Copy Email</button>
+                <button type="button" id="location-button">Check Location</button>
+            </div>
+        </section>
+
+        <nav class="dashboard-nav" aria-label="Dashboard navigation">
+            <button type="button" class="nav-button active" data-tab="overview">Overview</button>
+            <button type="button" class="nav-button" data-tab="assignments">Assignments</button>
+            <button type="button" class="nav-button" data-tab="progress">Progress</button>
+            <button type="button" class="nav-button" data-tab="notifications">Notifications</button>
+            <button type="button" class="nav-button" data-tab="application">Application</button>
+        </nav>
+
+        <p id="status-message" class="status-message" role="status" aria-live="polite">
+            Loading dashboard...
+        </p>
+
+        <!-- OVERVIEW -->
+        <section class="dashboard-section reveal" id="overview" data-section>
+            <div class="section-heading">
+                <div>
+                    <p class="eyebrow">YOUR SUMMARY</p>
+                    <h2>Dashboard Overview</h2>
+                </div>
+            </div>
+
+            <div class="stats-grid">
+                <article class="stat-card">
+                    <p>Total Assignments</p>
+                    <h3 id="total-assignments">0</h3>
+                </article>
+
+                <article class="stat-card">
+                    <p>Completed</p>
+                    <h3 id="completed-assignments">0</h3>
+                </article>
+
+                <article class="stat-card">
+                    <p>In Progress</p>
+                    <h3 id="active-assignments">0</h3>
+                </article>
+
+                <article class="stat-card">
+                    <p>Overall Progress</p>
+                    <h3 id="overall-progress">0%</h3>
+                </article>
+            </div>
+
+            <div class="content-grid">
+                <article class="panel">
+                    <h3>Profile Information</h3>
+                    <p><strong>Name:</strong> <span id="profile-full-name">-</span></p>
+                    <p><strong>Email:</strong> <span id="profile-email">-</span></p>
+                    <p><strong>Program:</strong> <span id="profile-program">-</span></p>
+                    <p><strong>Start Date:</strong> <span id="profile-start-date">-</span></p>
+                </article>
+
+                <article class="panel">
+                    <h3>Application Status</h3>
+                    <p id="overview-application-status">-</p>
+                    <p id="overview-application-message">-</p>
+                </article>
+            </div>
+        </section>
+
+        <!-- ASSIGNMENTS -->
+        <section class="dashboard-section reveal" id="assignments" data-section>
+            <div class="section-heading">
+                <div>
+                    <p class="eyebrow">YOUR WORK</p>
+                    <h2>Assignments</h2>
+                </div>
+            </div>
+
+            <div class="filter-panel">
+                <div class="form-group">
+                    <label for="assignment-search">Search assignments</label>
+                    <input
+                        type="search"
+                        id="assignment-search"
+                        placeholder="Search by title..."
+                    >
+                </div>
+
+                <div class="form-group">
+                    <label for="status-filter">Filter by status</label>
+                    <select id="status-filter">
+                        <option value="all">All Statuses</option>
+                        <option value="Pending">Pending</option>
+                        <option value="In Progress">In Progress</option>
+                        <option value="Completed">Completed</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="sort-filter">Sort assignments</label>
+                    <select id="sort-filter">
+                        <option value="due-date">Due Date</option>
+                        <option value="title">Title</option>
+                        <option value="progress">Progress</option>
+                    </select>
+                </div>
+            </div>
+
+            <p class="drag-hint">You can drag assignment cards to reorder them.</p>
+
+            <div id="assignments-container" class="assignments-grid">
+                <p class="empty-state">Loading assignments...</p>
+            </div>
+        </section>
+
+        <!-- PROGRESS -->
+        <section class="dashboard-section reveal" id="progress" data-section>
+            <div class="section-heading">
+                <div>
+                    <p class="eyebrow">YOUR PERFORMANCE</p>
+                    <h2>Training Progress</h2>
+                </div>
+            </div>
+
+            <article class="panel">
+                <div class="progress-heading">
+                    <h3>Overall Completion</h3>
+                    <strong id="progress-percentage">0%</strong>
+                </div>
+
+                <div
+                    class="progress-track"
+                    role="progressbar"
+                    aria-label="Overall training progress"
+                    aria-valuemin="0"
+                    aria-valuemax="100"
+                    aria-valuenow="0"
+                    id="overall-progress-bar"
+                >
+                    <div id="progress-fill" class="progress-fill"></div>
+                </div>
+
+                <p id="progress-description">Your progress will appear here.</p>
+            </article>
+        </section>
+
+        <!-- NOTIFICATIONS -->
+        <section class="dashboard-section reveal" id="notifications" data-section>
+            <div class="section-heading">
+                <div>
+                    <p class="eyebrow">UPDATES</p>
+                    <h2>Notifications</h2>
+                </div>
+
+                <button type="button" id="clear-notifications">
+                    Clear Notifications
+                </button>
+            </div>
+
+            <div id="notifications-container" class="notifications-list">
+                <p class="empty-state">Loading notifications...</p>
+            </div>
+        </section>
+
+        <!-- APPLICATION -->
+        <section class="dashboard-section reveal" id="application" data-section>
+            <div class="section-heading">
+                <div>
+                    <p class="eyebrow">APPLICATION DETAILS</p>
+                    <h2>Application Status</h2>
+                </div>
+            </div>
+
+            <article class="panel application-panel">
+                <h3 id="application-position">-</h3>
+                <p><strong>Status:</strong> <span id="application-status">-</span></p>
+                <p><strong>Applied On:</strong> <span id="application-date">-</span></p>
+                <p id="application-message">-</p>
+            </article>
+
+            <article class="panel form-panel">
+                <h3>Update Your Information</h3>
+
+                <form id="update-form">
+                    <div class="form-group">
+                        <label for="update-name">Full Name</label>
+                        <input
+                            type="text"
+                            id="update-name"
+                            name="name"
+                            required
+                            maxlength="80"
+                        >
+                    </div>
+
+                    <div class="form-group">
+                        <label for="update-email">Email Address</label>
+                        <input
+                            type="email"
+                            id="update-email"
+                            name="email"
+                            required
+                            maxlength="120"
+                        >
+                    </div>
+
+                    <div class="form-group">
+                        <label for="update-file">Upload a Document</label>
+                        <input
+                            type="file"
+                            id="update-file"
+                            name="document"
+                            accept=".pdf,.doc,.docx"
+                        >
+                        <small id="file-information">No file selected.</small>
+                    </div>
+
+                    <button type="submit">Submit Update</button>
+                </form>
+            </article>
+        </section>
+
+    </main>
+
+    <!-- ASSIGNMENT MODAL -->
+    <dialog id="assignment-modal" class="assignment-modal">
+        <div class="modal-header">
+            <h2 id="modal-title">Assignment Details</h2>
+            <button type="button" id="close-modal" aria-label="Close dialog">X</button>
+        </div>
+
+        <div id="modal-content"></div>
+    </dialog>
+
+    <!-- TOAST -->
+    <div id="toast-container" class="toast-container" aria-live="polite"></div>
+
+    <footer class="footer">
+        <p>&copy; 2026 InternHub. All rights reserved.</p>
+    </footer>
+
+</body>
+</html>
